@@ -23,8 +23,8 @@ namespace Task4_3
                 randoms.Add(random.Next(Int32.MinValue, Int32.MaxValue));
             }
 
-            int firstPositive = randoms.Where(x => x > 0).FirstOrDefault();
-            int lastNegative = randoms.Where(x => x < 0).LastOrDefault();
+            var firstPositive = randoms.Where(x => x > 0).FirstOrDefault();
+            var lastNegative = randoms.Where(x => x < 0).LastOrDefault();
 
             if (firstPositive != 0)
             {
