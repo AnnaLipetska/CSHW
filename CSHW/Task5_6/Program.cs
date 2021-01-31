@@ -29,7 +29,6 @@ namespace Task5_6
                 db.SaveChanges();
 
                 PhoneBrand pb1 = new PhoneBrand { Name = "Nokia", PhoneModels = new List<PhoneModel> { pm1, pm2 } };
-
                 PhoneBrand pb2 = new PhoneBrand { Name = "Samsung", PhoneModels = new List<PhoneModel> { pm3, pm4 } };
 
                 db.PhoneBrands.AddRange(new List<PhoneBrand> { pb1, pb2 });

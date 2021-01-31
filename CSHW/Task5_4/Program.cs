@@ -41,7 +41,7 @@ namespace Task5_4
                 Student st3 = new Student { FirstName = "Alice", LastName = "Morgan"};
 
 
-                db.Students.AddRange(new List<Student> { st1, st2 });
+                db.Students.AddRange(new List<Student> { st1, st2, st3 });
                 db.SaveChanges();
 
                 languages = db.Languages.ToList();
