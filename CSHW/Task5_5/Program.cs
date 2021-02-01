@@ -30,13 +30,12 @@ namespace Task5_5
                 db.SaveChanges();
 
                 PhoneBrand pb1 = new PhoneBrand { Name = "Nokia", PhoneModels = new List<PhoneModel> { pm1, pm2 } };
-
                 PhoneBrand pb2 = new PhoneBrand { Name = "Samsung", PhoneModels = new List<PhoneModel> { pm3, pm4 } };
 
                 db.PhoneBrands.AddRange(new List<PhoneBrand> { pb1, pb2 });
                 db.SaveChanges();
 
-                var phoneModels = db.PhoneModels.ToList();
+                var phoneModels = db.PhoneModels;
 
                 Show(phoneModels);
 
@@ -51,14 +50,14 @@ namespace Task5_5
                     Console.WriteLine("{0}.{1}", phoneBrand.Id, phoneBrand.Name);
 
                     if (phoneBrand.PhoneModels == null) continue;
-                    Show(phoneBrand.PhoneModels.ToList());
+                    Show(phoneBrand.PhoneModels);
                 }
 
                 Console.WriteLine(new string('-', 50));
                 Console.ReadKey();
                 Console.WriteLine();
 
-                var orderedPhoneModels = db.PhoneModels.OrderBy(pm => pm.Price).ToList();
+                var orderedPhoneModels = db.PhoneModels.OrderBy(pm => pm.Price);
                 Console.WriteLine("Список моделей телефонов отсортированный по цене:");
                 Show(orderedPhoneModels);
 
@@ -97,7 +96,7 @@ namespace Task5_5
             Console.WriteLine("\t{0}.{1} - {2} ({3})", phoneModel.Id, phoneModel.Name, phoneModel.Price, phoneModel.PhoneBrand != null ? phoneModel.PhoneBrand.Name : "Unknown Brand");
         }
 
-        private static void Show(ICollection<PhoneModel> phoneModels)
+        private static void Show(IEnumerable<PhoneModel> phoneModels)
         {
             foreach (var phoneModel in phoneModels)
             {
