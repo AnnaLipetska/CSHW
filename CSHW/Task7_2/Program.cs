@@ -15,13 +15,15 @@ namespace Task7_2
     {
         static void Main(string[] args)
         {
-            StreamWriter writer = File.CreateText("MyFile.txt");
+            var fileName = "MyFile.txt";
+
+            StreamWriter writer = File.CreateText(fileName);
             writer.WriteLine("Произвольные данные");
             writer.Close();
 
             Console.ReadKey();
 
-            StreamReader reader = File.OpenText("MyFile.txt");
+            StreamReader reader = File.OpenText(fileName);
             Console.WriteLine(reader.ReadToEnd());
 
             Console.ReadKey();
